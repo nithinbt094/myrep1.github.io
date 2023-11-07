@@ -1,82 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Voter Validation</title>
-    <style>
-        body{
-            background-image: url('Black Lamborghini.jpg');
-            background-repeat: no-repeat;
-            background-size: 1750px;
-            color:darkorange;
-            }
-
-    </style>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-        }
-
-        .container {
-            max-width: 400px;
-            margin: 50px auto;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            background-color: #f9f9f9;
-        }
-
-        input[type="number"] {
-            width: 100%;
-            padding: 10px;
-            margin: 5px 0;
-            box-sizing: border-box;
-        }
-
-        button {
-            padding: 10px 20px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #45a049;
-        }
-
-        p {
-            font-size: 18px;
-            font-weight: bold;
-        }
-    </style>
+    <title>TINDI BANDI</title>
 </head>
-
 <body>
-    <div class="container">
-        <h2>Voter Validation</h2>
-        <label for="age">Enter your age:</label>
-        <input type="number" id="age" min="0">
-        <button onclick="validateAge()">Check Eligibility</button>
-        <p id="result"></p>
-    </div>
+    <div class="image-container">
+        <div class="overlay-text">
+          <style>
+            body {
+                background-size: cover;
+              font-family: Arial, sans-serif;
 
-    <script>
-        function validateAge() {
-            var age = document.getElementById("age").value;
-            var resultElement = document.getElementById("result");
-
-            if (age >= 18) {
-                resultElement.innerText = " shabash bettaYou are eligible to vote!";
-            } else {
-                resultElement.innerText = "Hey Chinna Nen Innu 18 Agilla kano.";
             }
-        }
-    </script>
-</body>
+            .container {
+              text-align: center;
+              margin-top: 20px;
+            }
+          </style>
+        </head>
+        <body style="background-image: url(river-cafe.webp);width: 100%;height: 100% ; backdrop-filter: blur(10px);position: relative;">
+          <h2 style="text-align: center;">Tea and Coffee Counter</h2>
 
+          <div class="container">
+            <label>
+              <input type="radio" name="drink" value="tea"> Tea
+            </label>
+            <label>
+              <input type="radio" name="drink" value="coffee"> Coffee
+            </label>
+            <label>
+                <input type="radio" name="drink" value="horlicks"> Horlicks
+              </label>
+              <label>
+                <input type="radio" name="drink" value="badam milk"> Badam milk
+              </label>
+            <br>
+            <button onclick="countDrink()">Add Drink</button>
+            <p>Tea Count: <span id="teaCount">0</span></p>
+            <p>Coffee Count: <span id="coffeeCount">0</span></p>
+            <p>horlicks Count: <span id="horlicksCount">0</span></p>
+            <p>badam milk Count: <span id="badammilkCount">0</span></p>
+          </div>
+         <script>
+            let teaCount = 0;
+            let horlicksCount=0;
+            let badammilkCount=0;
+            let coffeeCount = 0;
+            let count=0;
+            function countDrink() {
+              const selectedDrink = document.querySelector('input[name="drink"]:checked');
+              if (selectedDrink) {
+                const drinkType = selectedDrink.value;
+                if (drinkType === 'tea') {
+                  teaCount++;
+                  count++;
+                  document.getElementById('teaCount').textContent = teaCount;
+                } else if (drinkType === 'coffee') {
+                  coffeeCount++;
+                  document.getElementById('coffeeCount').textContent = coffeeCount;
+                }
+                else if (drinkType === 'horlicks') {
+                    horlicksCount++;
+                    document.getElementById('horlicksCount').textContent = horlicksCount;
+                  }
+                  else if (drinkType === 'badam milk') {
+                    badammilkCount++;
+                    document.getElementById('badammilkCount').textContent = badammilkCount;
+                  }
+              }
+            }
+            </script>
+            <script>
+                function getbill(){
+                    var bill=0;
+                    bill=teaCount*10+coffeeCount*12+horlicksCount*15+badammilkCount*20;
+                    document.getElementById('bill').textContent = bill;
+                    return bill;
+                }
+            </script>
+        <center>
+        <button onclick="getbill()">Get Bill</button>
+        <p>Bill: <span id="bill">0</span></p>
+    </center>
+        </body>
+        </html>
+    </div>
+</body>
 </html>
